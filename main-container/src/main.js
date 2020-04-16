@@ -90,8 +90,8 @@ registerMicroApps(
       render,
       activeRule: genActiveRule("/report")
     }
-  ]
-  /* {
+  ],
+  {
     beforeLoad: [
       app => {
         console.log("before load", app);
@@ -107,7 +107,7 @@ registerMicroApps(
         console.log("after unload", app);
       }
     ]
-  } */
+  } 
 );
 setDefaultMountApp("/basic");
 runAfterFirstMounted(() => console.info("first app mounted"));
