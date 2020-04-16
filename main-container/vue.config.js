@@ -3,6 +3,7 @@ const port = 7770; // dev port
 
 module.exports = {
   publicPath: "./",
+  lintOnSave: false,
   devServer: {
     // host: '0.0.0.0',
     hot: true,
