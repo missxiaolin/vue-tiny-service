@@ -12,12 +12,13 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 
-export async function bootstrap(props) {
-  console.log(props);
-  console.log("进入基础数据");
+export async function bootstrap() {
 }
 
-export async function mount() {
+export async function mount(props = {}) {
+  Array.isArray(props.fns) && props.fns.map(i => {
+    Vue.prototype[i.name] = i[i.name]
+  });
   router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? "/basic" : "/",
     mode: "history",
@@ -44,3 +45,4 @@ window.__POWERED_BY_QIANKUN__ || mount();
   store,
   render: h => h(App)
 }).$mount("#app"); */
+

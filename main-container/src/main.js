@@ -40,7 +40,7 @@ let app = null;
   }
 }; 
 */
-function render({ appContent, loading }) {
+function render({ appContent, loading } = {}) {
   if (!app && appContent !== undefined) {
     app = new Vue({
       el: "#container",
@@ -70,9 +70,20 @@ function render({ appContent, loading }) {
 function genActiveRule(routerPrefix) {
   return location => location.pathname.startsWith(routerPrefix);
 }
-render({ loading: true });
+render();
+// 定义传入子应用的数据
 let msg = {
-  auth: false
+  data: {
+    auth: false
+  },
+  fns: [
+    {
+      name: "_LOGOUT_",
+      _LOGOUT_(data) {
+        alert('父应用返回信息：' + data)
+      }
+    }
+  ]
 };
 //注册子应用
 registerMicroApps(
@@ -91,27 +102,30 @@ registerMicroApps(
       activeRule: genActiveRule("/report"),
       props: msg
     }
-  ],
-  {
-    beforeLoad: [
-      app => {
-        console.log("before load", app);
-      }
-    ],
-    beforeMount: [
-      app => {
-        console.log("before mount", app);
-      }
-    ],
-    afterUnmount: [
-      app => {
-        console.log("after unload", app);
-      }
-    ]
-  } 
+  ]
+  // {
+  //   beforeLoad: [
+  //     app => {
+  //       console.log("before load", app);
+  //     }
+  //   ],
+  //   beforeMount: [
+  //     app => {
+  //       console.log("before mount", app);
+  //     }
+  //   ],
+  //   afterUnmount: [
+  //     app => {
+  //       console.log("after unload", app);
+  //     }
+  //   ]
+  // } 
 );
+// 设置默认子应用
 setDefaultMountApp("/basic");
-runAfterFirstMounted(() => console.info("first app mounted"));
+// 第一个子应用加载完毕回调
+runAfterFirstMounted();
+// 启动微服务
 start();
 
 /* new Vue({

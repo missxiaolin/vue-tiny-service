@@ -6,6 +6,7 @@
         <el-button type="primary" @click="routerChange('/')">表格</el-button>
         <el-button type="primary" @click="routerChange('/about')">日历</el-button>
       </el-button-group>
+      <el-button class="right" type="primary" @click="callParentLogout('Im going')">通知父应用退出登录</el-button>
     </div>
     <router-view />
   </div>
@@ -14,14 +15,20 @@
 <script>
 export default {
   name: "basic-app",
-  components: {},
   methods: {
     /**
      * 路由切换
      * url 路由地址
      */
     routerChange(url) {
-      this.$router.replace(url)
+      this.$router.replace(url);
+    },
+    /**
+     * 通知父应用退出登录
+     * data 自定义数据
+     */
+    callParentLogout(data) {
+      this._LOGOUT_(data);
     }
   }
 };
