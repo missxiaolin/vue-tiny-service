@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <h2>基础数据子应用</h2>
+    <h2>
+      基础数据子应用
+      <span class="right">auth:weilan</span>
+    </h2>
     <div id="nav">
       <el-button-group>
         <el-button type="primary" @click="routerChange('/')">表格</el-button>
@@ -28,7 +31,7 @@ export default {
      * data 自定义数据
      */
     callParentLogout(data) {
-      this._LOGOUT_(data);
+      this.LOGOUT_(data);
     }
   }
 };

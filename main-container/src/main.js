@@ -70,7 +70,9 @@ function render({ appContent, loading } = {}) {
 function genActiveRule(routerPrefix) {
   return location => location.pathname.startsWith(routerPrefix);
 }
+
 render();
+
 // 定义传入子应用的数据
 let msg = {
   data: {
@@ -78,13 +80,14 @@ let msg = {
   },
   fns: [
     {
-      name: "_LOGOUT_",
-      _LOGOUT_(data) {
+      name: "LOGOUT_",
+      LOGOUT_(data) {
         alert('父应用返回信息：' + data)
       }
     }
   ]
 };
+
 //注册子应用
 registerMicroApps(
   [
@@ -103,24 +106,25 @@ registerMicroApps(
       props: msg
     }
   ]
-  // {
-  //   beforeLoad: [
-  //     app => {
-  //       console.log("before load", app);
-  //     }
-  //   ],
-  //   beforeMount: [
-  //     app => {
-  //       console.log("before mount", app);
-  //     }
-  //   ],
-  //   afterUnmount: [
-  //     app => {
-  //       console.log("after unload", app);
-  //     }
-  //   ]
-  // } 
+  /* {
+    beforeLoad: [
+      app => {
+        console.log("before load", app);
+      }
+    ],
+    beforeMount: [
+      app => {
+        console.log("before mount", app);
+      }
+    ],
+    afterUnmount: [
+      app => {
+        console.log("after unload", app);
+      }
+    ]
+  } */
 );
+
 // 设置默认子应用
 setDefaultMountApp("/basic");
 // 第一个子应用加载完毕回调
