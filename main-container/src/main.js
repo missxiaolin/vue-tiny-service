@@ -70,7 +70,7 @@ function render({ appContent, loading }) {
 function genActiveRule(routerPrefix) {
   return location => location.pathname.startsWith(routerPrefix);
 }
-render();
+render({ loading: true });
 let msg = {
   auth: false
 };
