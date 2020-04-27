@@ -302,8 +302,6 @@ module.exports = {
 ```
 经过上述改造，一个简易的微前端环境就草草建成了，是不是很简单，你是不是已经跃跃欲试了？
 
-直接上手跑代码 --> [wl-qiankun](https://github.com/hql7/wl-qiankun)
-
 当然，一个基础的微前端架子建成后，我们还有一些无法绕过的问题要处理，下面将其中部分逐一讲解。
 
 ### 父子应用通信
@@ -449,6 +447,5 @@ window.history.pushState({}, title, href);
 ### 一个简单的基于qiankun和vue的实战示例就这么结束啦
 
   当然我们需要考虑的还有很多，但是我前天刚买的狼叔的[【前端架构：从入门到微前端】](https://item.jd.com/12621088.html)告诉我们，架构是一件持续性和渐进式的事儿，其他的后续再逐渐丰富吧~~~
->另附Github上的demo地址:[wl-qiankun](https://github.com/hql7/wl-qiankun)。
 
 不想看我在这罗里吧嗦的直接代码跑起吧~，如果你觉得还有一点点可以，就请留个star吧~~
