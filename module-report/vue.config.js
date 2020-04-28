@@ -16,6 +16,7 @@ module.exports = {
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
   // publicPath:`//localhost:${port}`,
+  publicPath: `//localhost:${port}`,
   outputDir: "dist",
   assetsDir: "static",
   // build: {
