@@ -1,7 +1,7 @@
 <template>
   <div id="root" class="main-container">
     <!-- 左侧菜单区 -->
-    <the-menu class="main-menu-box" />
+      <the-menu class="main-menu-box" />
     <!-- 右侧视图 -->
     <div class="main-container-content">
       <!-- 上部导航区 -->
@@ -29,11 +29,6 @@ export default {
   props: {
     loading: Boolean,
     content: String
-  },
-  computed: {
-    isCollapse() {
-      return this.$store.getters.is_collapse;
-    }
   }
 };
 </script>
@@ -50,15 +45,7 @@ body {
   width: 100%;
   height: 100%;
 }
-.main-logo {
-  height: 60px;
-  background: #2a3f54;
-  text-align: center;
-  line-height: 60px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-}
+
 .main-container-content {
   flex: 1;
   display: flex;
