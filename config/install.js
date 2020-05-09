@@ -1,8 +1,3 @@
-/**
- *  auth: weilan
- *  读取文件夹并运行下载依赖
- */
-
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
