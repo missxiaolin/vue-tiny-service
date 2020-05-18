@@ -407,7 +407,7 @@ qiankun对于props的应用类似于react框架的父子组件通信，传入dat
 
 在真实项目使用中，单纯的主、子应用数据与回调函数传递无法满足需求。通常还会有一部门主应用的资源或者公共资源可以下放给主应用使用！
 
-在我的[github](https://github.com/hql7)微前端qiankun项目[wl-micro-frontends](https://github.com/hql7/wl-micro-frontends)中，我是这么处理的：将主应用msg分成`data、components、utils、emitFnc`分别代表各类需要下发给子应用的资源！
+在我的微前端qiankun项目中，我是这么处理的：将主应用msg分成`data、components、utils、emitFnc`分别代表各类需要下发给子应用的资源！
 > 此时经过改造后的主应用main.js是这样的：
 ```
    /**
@@ -447,7 +447,7 @@ qiankun对于props的应用类似于react框架的父子组件通信，传入dat
       ]
       )
 ```
- *详见[主应用main.js](https://github.com/hql7/wl-micro-frontends/blob/master/main-container/src/main.js)
+ *详见[主应用main.js](https://github.com/missxiaolin/vue-tiny-service/master/main-container/src/main.js)
  
 > 处理完主应用的下发逻辑，下面再改造一下子应用的接收逻辑
 在子应用main.js中写下这段代码：因为bootstrap在子应用的生命周期只会调用一次，因此我们把注册组件和挂载函数放在这里
@@ -478,7 +478,7 @@ export async function mount({ data = {} } = {}) {
   }).$mount("#app");
 }
 ```
- *详见[子应用main.js](https://github.com/hql7/wl-micro-frontends/blob/master/module-basic-data/src/main.js)
+ *详见[子应用main.js](https://github.com/missxiaolin/vue-tiny-service/master/module-basic-data/src/main.js)
 
 好，道理我们都懂，那么到底有没有效果呢，下面我们就在子应用中使用下主应用下发的组件和函数来验证一下：
 > 在子应用module-basic-data的Home.vue中添加以下代码：
