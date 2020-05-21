@@ -1,10 +1,10 @@
 {
-  "name": "wl-qiankun",
+  "name": "xiaolin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "init": "node config/install.js",
-    "cinit": "node config/c-install.js",
+    "cinit": "node config/install.js cnpm",
     "serve": "node config/start.js",
     "build": "node config/build.js",
     "lint": "vue-cli-service lint"

@@ -6,6 +6,7 @@ function resolve(dir) {
 }
 
 const port = 6652; // dev port
+const dev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   /**
@@ -15,13 +16,13 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: `//localhost:${port}`,
+  publicPath: dev ? `//localhost:${port}` : '/',
   outputDir: 'dist',
   assetsDir: 'static',
   filenameHashing: true,
-  lintOnSave: false,
   // tweak internal webpack configuration.
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
+  lintOnSave: false,
   devServer: {
     // host: '0.0.0.0',
     hot: true,

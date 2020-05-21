@@ -6,7 +6,8 @@ const appConfig = [
     icon: "el-icon-monitor",
     module: "subapp-ui",
     defaultRegister: true,
-    entry: "//localhost:6651",
+    devEntry: "//localhost:6651",
+    depEntry: "//localhost:6651",
     routerBase: "/ui",
     children: [
       {
@@ -27,7 +28,8 @@ const appConfig = [
     icon: "el-icon-date",
     module: "subapp-blog",
     defaultRegister: false,
-    entry: "//localhost:6652",
+    devEntry: "//localhost:6652",
+    depEntry: "//localhost:6651",
     routerBase: "/blog",
     children: [
       {
