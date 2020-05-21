@@ -6,6 +6,7 @@ import routes from "./router";
 import store from "./store";
 import "./plugins/element.js";
 import "@/assets/css/demo.min.css"
+import routeMatch from "@/auth/route-match"; // 导入路由匹配文件路径函数
 
 Vue.config.productionTip = false;
 
@@ -30,11 +31,11 @@ export async function bootstrap({ components, utils, emitFnc, pager }) {
   Vue.prototype.$pager = pager;
 }
 
-export async function mount({ data = {}, ROUTES } = {}) {
+export async function mount({ data = {}, ROUTES, routerBase } = {}) {
   router = new VueRouter({
-    base: __qiankun__ ? "/blog" : "/",
+    base: __qiankun__ ? routerBase : "/",
     mode: "history",
-    routes
+    routes: __qiankun__ ? routeMatch(ROUTES, routerBase) : routes
   });
   instance = new Vue({
     router,
@@ -50,7 +51,7 @@ export async function unmount() {
 }
 
 // 单独开发环境
-window.__POWERED_BY_QIANKUN__ || mount();
+__qiankun__ || mount();
 
 /* new Vue({
   router,
